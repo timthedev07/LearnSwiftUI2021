@@ -16,17 +16,22 @@ struct ContentView: View {
         /**
          In the preview, Command-click the greeting to bring up the structured editing popover, and choose “Show SwiftUI Inspector”.
          */
-        VStack(alignment: .leading) {
-            Text("Turtle Rock")
-                .font(.title)
-            HStack {
-                Text("Joshua Tree National Park")
-                    .font(.subheadline)
-                Spacer()
-                Text("California").font(.subheadline)
-            }
+        VStack(alignment: .center) {
+          MapView().frame(height: 300)
+          CircleImage()
+          VStack(alignment: .leading) {
+              Text("Turtle Rock")
+                  .font(.title)
+              HStack {
+                  Text("Joshua Tree National Park")
+                      .font(.subheadline)
+                  Spacer()
+                  Text("California").font(.subheadline)
+              }
+          }
+          .padding()
         }
-        .padding()
+        
     }
 }
 
