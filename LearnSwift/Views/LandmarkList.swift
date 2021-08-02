@@ -16,7 +16,7 @@ struct LandmarkList: View {
         ```
        in react.
        */
-      List(landmarks, id: \.id) { landmark in
+      List(landmarks) { landmark in
         LandmarkRow(landmark: landmark)
       }
     }
