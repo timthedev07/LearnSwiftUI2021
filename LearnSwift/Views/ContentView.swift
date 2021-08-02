@@ -16,29 +16,7 @@ struct ContentView: View {
     /**
      In the preview, Command-click the greeting to bring up the structured editing popover, and choose “Show SwiftUI Inspector”.
      */
-    VStack {
-      MapView().frame(height: 300).ignoresSafeArea(edges: .top)
-      CircleImage().offset(y: -110).padding(.bottom, -110)
-      VStack(alignment: .leading) {
-        Text("Turtle Rock")
-            .font(.title)
-        HStack {
-            Text("Joshua Tree National Park")
-                .font(.subheadline)
-            Spacer()
-            Text("California").font(.subheadline)
-        }
-        Divider()
-        Text("About Turtle Rock")
-            .font(.title2)
-        Text("Turtle Rock is a neighborhood in the south part of Irvine, Orange County, California, near Concordia University, Irvine and the University of California, Irvine.")
-      }
-      .padding()
-      
-      Spacer()
-      
-      
-    }
+    LandmarkList();
     
   }
 }

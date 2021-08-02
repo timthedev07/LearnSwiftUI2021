@@ -16,8 +16,13 @@ struct LandmarkList: View {
         ```
        in react.
        */
-      List(landmarks) { landmark in
-        LandmarkRow(landmark: landmark)
+      // note that if you want to use NavigationLink, you have to wrapp the list or links in the NavigationView component
+      NavigationView {
+        List(landmarks) { landmark in
+          NavigationLink(destination: LandmarkDetail(landmark: landmark)) {
+            LandmarkRow(landmark: landmark)
+          }
+        }.navigationTitle("Landmarks")
       }
     }
 }
