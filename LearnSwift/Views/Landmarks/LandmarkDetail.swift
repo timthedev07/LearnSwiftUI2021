@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct LandmarkDetail: View {
+  @EnvironmentObject var modelData: ModelData
   var landmark: Landmark
+  var landmarkIndex: Int {
+
+    modelData.landmarks.firstIndex(where: { $0.id == landmark.id })!
+
+  }
+  
   var body: some View {
     VStack {
       MapView(coordinate: landmark.locationCoordinate)
@@ -16,10 +23,18 @@ struct LandmarkDetail: View {
         .frame(height: 300)
         
           .frame(height: 300)
+      
       CircleImage(image: landmark.image).offset(y: -110).padding(.bottom, -110)
+      
       VStack(alignment: .leading) {
-        Text(landmark.name)
+        HStack {
+          Text(landmark.name)
             .font(.title)
+            .foregroundColor(.primary)
+          
+          FavoriteButton(isSet: $modelData.landmarks[landmarkIndex].isFavorite)
+        }
+        
         HStack {
           Text(landmark.park)
                 .font(.subheadline)
@@ -40,6 +55,6 @@ struct LandmarkDetail: View {
 
 struct LandmarkDetail_Previews: PreviewProvider {
   static var previews: some View {
-    LandmarkDetail(landmark: landmarks[1])
+    LandmarkDetail(landmark: ModelData().landmarks[1])
   }
 }
